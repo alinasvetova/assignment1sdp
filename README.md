@@ -3,12 +3,10 @@
 ```mermaid
 classDiagram
 
-%% === Main ===
 class Main {
   + main(String[] args) void
 }
 
-%% === Car & Builder ===
 class Car {
   - UUID uniqueId
   - String model
@@ -18,7 +16,7 @@ class Car {
   + toString() String
 }
 
-class CarBuilder as "Car.Builder" {
+class CarBuilder {
   - String model
   - int year
   - String color
@@ -33,7 +31,6 @@ class CarBuilder as "Car.Builder" {
 CarBuilder --> Car : builds
 Main --> CarBuilder : uses
 
-%% === Report & Builder ===
 class Report {
   - UUID uniqueId
   - String title
@@ -41,7 +38,7 @@ class Report {
   + toString() String
 }
 
-class ReportBuilder as "Report.Builder" {
+class ReportBuilder {
   - String title
   - List~String~ messages
   + ReportBuilder title(String)
